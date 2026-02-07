@@ -116,3 +116,8 @@ Huge thanks to Kevin Burke and all prior contributors for the original
 `ssh_config` project and the foundation this fork builds on.
 
 Contributor credits are listed in `AUTHORS.txt`.
+
+## License
+
+This fork is released under the MIT License. See `LICENSE` for details,
+including attribution and third-party license notices.
