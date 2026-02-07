@@ -1,0 +1,1281 @@
+{
+  "opensshVersion": "OpenSSH_10.2p1",
+  "directives": [
+    {
+      "name": "addkeystoagent",
+      "canonical": "addkeystoagent",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "addressfamily",
+      "canonical": "addressfamily",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "inet",
+        "inet6",
+        "any"
+      ]
+    },
+    {
+      "name": "afstokenpassing",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "batchmode",
+      "canonical": "batchmode",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "bindaddress",
+      "canonical": "bindaddress",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "bindinterface",
+      "canonical": "bindinterface",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "canonicaldomains",
+      "canonical": "canonicaldomains",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "canonicalizefallbacklocal",
+      "canonical": "canonicalizefallbacklocal",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false,
+      "default": "yes"
+    },
+    {
+      "name": "canonicalizehostname",
+      "canonical": "canonicalizehostname",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "default": "no",
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "always"
+      ]
+    },
+    {
+      "name": "canonicalizemaxdots",
+      "canonical": "canonicalizemaxdots",
+      "status": "supported",
+      "type": "uint",
+      "multi": false,
+      "default": "1"
+    },
+    {
+      "name": "canonicalizepermittedcnames",
+      "canonical": "canonicalizepermittedcnames",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "casignaturealgorithms",
+      "canonical": "casignaturealgorithms",
+      "status": "supported",
+      "type": "list",
+      "multi": false
+    },
+    {
+      "name": "certificatefile",
+      "canonical": "certificatefile",
+      "status": "supported",
+      "type": "string",
+      "multi": true,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true
+    },
+    {
+      "name": "challengeresponseauthentication",
+      "canonical": "kbdinteractiveauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false,
+      "aliasFor": "kbdinteractiveauthentication"
+    },
+    {
+      "name": "channeltimeout",
+      "canonical": "channeltimeout",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "checkhostip",
+      "canonical": "checkhostip",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "cipher",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "ciphers",
+      "canonical": "ciphers",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "clearallforwardings",
+      "canonical": "clearallforwardings",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "compression",
+      "canonical": "compression",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "name": "compressionlevel",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "connectionattempts",
+      "canonical": "connectionattempts",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "connecttimeout",
+      "canonical": "connecttimeout",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "controlmaster",
+      "canonical": "controlmaster",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "yes",
+        "false",
+        "no",
+        "auto",
+        "ask",
+        "autoask"
+      ]
+    },
+    {
+      "name": "controlpath",
+      "canonical": "controlpath",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true
+    },
+    {
+      "name": "controlpersist",
+      "canonical": "controlpersist",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "dsaauthentication",
+      "canonical": "pubkeyauthentication",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "aliasFor": "pubkeyauthentication",
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "unbound",
+        "host-bound"
+      ]
+    },
+    {
+      "name": "dynamicforward",
+      "canonical": "dynamicforward",
+      "status": "supported",
+      "type": "list",
+      "multi": true
+    },
+    {
+      "name": "enableescapecommandline",
+      "canonical": "enableescapecommandline",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "enablesshkeysign",
+      "canonical": "enablesshkeysign",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "escapechar",
+      "canonical": "escapechar",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "exitonforwardfailure",
+      "canonical": "exitonforwardfailure",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "fallbacktorsh",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "fingerprinthash",
+      "canonical": "fingerprinthash",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "forkafterauthentication",
+      "canonical": "forkafterauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "forwardagent",
+      "canonical": "forwardagent",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "forwardx11",
+      "canonical": "forwardx11",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "forwardx11timeout",
+      "canonical": "forwardx11timeout",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "forwardx11trusted",
+      "canonical": "forwardx11trusted",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "gatewayports",
+      "canonical": "gatewayports",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "globalknownhostsfile",
+      "canonical": "globalknownhostsfile",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "globalknownhostsfile2",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "gssapiauthentication",
+      "canonical": "gssapiauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "gssapiauthentication",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "gssapidelegatecredentials",
+      "canonical": "gssapidelegatecredentials",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "gssapidelegatecredentials",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "hashknownhosts",
+      "canonical": "hashknownhosts",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "host",
+      "canonical": "host",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "hostbasedacceptedalgorithms",
+      "canonical": "hostbasedacceptedalgorithms",
+      "status": "supported",
+      "type": "list",
+      "multi": false
+    },
+    {
+      "name": "hostbasedauthentication",
+      "canonical": "hostbasedauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "hostbasedkeytypes",
+      "canonical": "hostbasedacceptedalgorithms",
+      "status": "supported",
+      "type": "list",
+      "multi": false,
+      "aliasFor": "hostbasedacceptedalgorithms"
+    },
+    {
+      "name": "hostkeyalgorithms",
+      "canonical": "hostkeyalgorithms",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "hostkeyalias",
+      "canonical": "hostkeyalias",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "hostname",
+      "canonical": "hostname",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%h"
+      ]
+    },
+    {
+      "name": "identitiesonly",
+      "canonical": "identitiesonly",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "identityagent",
+      "canonical": "identityagent",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true
+    },
+    {
+      "name": "identityfile",
+      "canonical": "identityfile",
+      "status": "supported",
+      "type": "string",
+      "multi": true,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true
+    },
+    {
+      "name": "identityfile2",
+      "canonical": "identityfile",
+      "status": "supported",
+      "type": "string",
+      "multi": true,
+      "aliasFor": "identityfile"
+    },
+    {
+      "name": "ignoreunknown",
+      "canonical": "ignoreunknown",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "include",
+      "canonical": "include",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true
+    },
+    {
+      "name": "ipqos",
+      "canonical": "ipqos",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "kbdinteractiveauthentication",
+      "canonical": "kbdinteractiveauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "kbdinteractivedevices",
+      "canonical": "kbdinteractivedevices",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "keepalive",
+      "canonical": "tcpkeepalive",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false,
+      "aliasFor": "tcpkeepalive"
+    },
+    {
+      "name": "kerberosauthentication",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "kerberostgtpassing",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "kexalgorithms",
+      "canonical": "kexalgorithms",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "default": "mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256"
+    },
+    {
+      "name": "knownhostscommand",
+      "canonical": "knownhostscommand",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u",
+        "%f",
+        "%H",
+        "%I",
+        "%K",
+        "%t"
+      ],
+      "env": true
+    },
+    {
+      "name": "localcommand",
+      "canonical": "localcommand",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokensAll": true
+    },
+    {
+      "name": "localforward",
+      "canonical": "localforward",
+      "status": "supported",
+      "type": "list",
+      "multi": true,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true,
+      "envUnixPaths": true
+    },
+    {
+      "name": "loglevel",
+      "canonical": "loglevel",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "logverbose",
+      "canonical": "logverbose",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "macs",
+      "canonical": "macs",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "match",
+      "canonical": "match",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "nohostauthenticationforlocalhost",
+      "canonical": "nohostauthenticationforlocalhost",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "numberofpasswordprompts",
+      "canonical": "numberofpasswordprompts",
+      "status": "supported",
+      "type": "uint",
+      "multi": false
+    },
+    {
+      "name": "obscurekeystroketiming",
+      "canonical": "obscurekeystroketiming",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "passwordauthentication",
+      "canonical": "passwordauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "permitlocalcommand",
+      "canonical": "permitlocalcommand",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "permitremoteopen",
+      "canonical": "permitremoteopen",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "pkcs11provider",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "pkcs11provider",
+      "canonical": "pkcs11provider",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "port",
+      "canonical": "port",
+      "status": "supported",
+      "type": "uint",
+      "multi": false,
+      "default": "22"
+    },
+    {
+      "name": "preferredauthentications",
+      "canonical": "preferredauthentications",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "protocol",
+      "canonical": "protocol",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "proxycommand",
+      "canonical": "proxycommand",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%h",
+        "%n",
+        "%p",
+        "%r"
+      ]
+    },
+    {
+      "name": "proxyjump",
+      "canonical": "proxyjump",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%h",
+        "%n",
+        "%p",
+        "%r"
+      ]
+    },
+    {
+      "name": "proxyusefdpass",
+      "canonical": "proxyusefdpass",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "pubkeyacceptedalgorithms",
+      "canonical": "pubkeyacceptedalgorithms",
+      "status": "supported",
+      "type": "list",
+      "multi": false
+    },
+    {
+      "name": "pubkeyacceptedkeytypes",
+      "canonical": "pubkeyacceptedalgorithms",
+      "status": "supported",
+      "type": "list",
+      "multi": false,
+      "aliasFor": "pubkeyacceptedalgorithms"
+    },
+    {
+      "name": "pubkeyauthentication",
+      "canonical": "pubkeyauthentication",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "unbound",
+        "host-bound"
+      ]
+    },
+    {
+      "name": "refuseconnection",
+      "canonical": "refuseconnection",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "rekeylimit",
+      "canonical": "rekeylimit",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "remotecommand",
+      "canonical": "remotecommand",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ]
+    },
+    {
+      "name": "remoteforward",
+      "canonical": "remoteforward",
+      "status": "supported",
+      "type": "list",
+      "multi": true,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true,
+      "envUnixPaths": true
+    },
+    {
+      "name": "requesttty",
+      "canonical": "requesttty",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "yes",
+        "false",
+        "no",
+        "force",
+        "auto"
+      ]
+    },
+    {
+      "name": "requiredrsasize",
+      "canonical": "requiredrsasize",
+      "status": "supported",
+      "type": "uint",
+      "multi": false
+    },
+    {
+      "name": "revokedhostkeys",
+      "canonical": "revokedhostkeys",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ]
+    },
+    {
+      "name": "rhostsauthentication",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "rhostsrsaauthentication",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "rsaauthentication",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "securitykeyprovider",
+      "canonical": "securitykeyprovider",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "sendenv",
+      "canonical": "sendenv",
+      "status": "supported",
+      "type": "string",
+      "multi": true
+    },
+    {
+      "name": "serveralivecountmax",
+      "canonical": "serveralivecountmax",
+      "status": "supported",
+      "type": "uint",
+      "multi": false
+    },
+    {
+      "name": "serveraliveinterval",
+      "canonical": "serveraliveinterval",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "sessiontype",
+      "canonical": "sessiontype",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "none",
+        "subsystem",
+        "default"
+      ]
+    },
+    {
+      "name": "setenv",
+      "canonical": "setenv",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "skeyauthentication",
+      "canonical": "kbdinteractiveauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false,
+      "aliasFor": "kbdinteractiveauthentication"
+    },
+    {
+      "name": "smartcarddevice",
+      "canonical": "afstokenpassing",
+      "status": "unsupported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "afstokenpassing"
+    },
+    {
+      "name": "smartcarddevice",
+      "canonical": "pkcs11provider",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "pkcs11provider"
+    },
+    {
+      "name": "stdinnull",
+      "canonical": "stdinnull",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "streamlocalbindmask",
+      "canonical": "streamlocalbindmask",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "streamlocalbindunlink",
+      "canonical": "streamlocalbindunlink",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "stricthostkeychecking",
+      "canonical": "stricthostkeychecking",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "ask",
+        "off",
+        "accept-new"
+      ]
+    },
+    {
+      "name": "syslogfacility",
+      "canonical": "syslogfacility",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "tag",
+      "canonical": "tag",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "tcpkeepalive",
+      "canonical": "tcpkeepalive",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "tisauthentication",
+      "canonical": "kbdinteractiveauthentication",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false,
+      "aliasFor": "kbdinteractiveauthentication"
+    },
+    {
+      "name": "tunnel",
+      "canonical": "tunnel",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "ethernet",
+        "point-to-point",
+        "true",
+        "yes",
+        "false",
+        "no"
+      ]
+    },
+    {
+      "name": "tunneldevice",
+      "canonical": "tunneldevice",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "updatehostkeys",
+      "canonical": "updatehostkeys",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "ask"
+      ]
+    },
+    {
+      "name": "useprivilegedport",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "user",
+      "canonical": "user",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    },
+    {
+      "name": "userknownhostsfile",
+      "canonical": "userknownhostsfile",
+      "status": "supported",
+      "type": "list",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ],
+      "env": true
+    },
+    {
+      "name": "userknownhostsfile2",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "useroaming",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "usersh",
+      "canonical": "cipher",
+      "status": "deprecated",
+      "type": "string",
+      "multi": false,
+      "aliasFor": "cipher"
+    },
+    {
+      "name": "verifyhostkeydns",
+      "canonical": "verifyhostkeydns",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "ask"
+      ]
+    },
+    {
+      "name": "versionaddendum",
+      "canonical": "versionaddendum",
+      "status": "supported",
+      "type": "string",
+      "multi": false,
+      "tokens": [
+        "%%",
+        "%C",
+        "%d",
+        "%h",
+        "%i",
+        "%j",
+        "%k",
+        "%L",
+        "%l",
+        "%n",
+        "%p",
+        "%r",
+        "%u"
+      ]
+    },
+    {
+      "name": "visualhostkey",
+      "canonical": "visualhostkey",
+      "status": "supported",
+      "type": "yesno",
+      "multi": false
+    },
+    {
+      "name": "warnweakcrypto",
+      "canonical": "warnweakcrypto",
+      "status": "supported",
+      "type": "enum",
+      "multi": false,
+      "enum": [
+        "true",
+        "false",
+        "yes",
+        "no",
+        "no-pq-kex"
+      ]
+    },
+    {
+      "name": "xauthlocation",
+      "canonical": "xauthlocation",
+      "status": "supported",
+      "type": "string",
+      "multi": false
+    }
+  ],
+  "matchExecTokens": [
+    "%%",
+    "%C",
+    "%d",
+    "%h",
+    "%i",
+    "%j",
+    "%k",
+    "%L",
+    "%l",
+    "%n",
+    "%p",
+    "%r",
+    "%u"
+  ]
+}

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/kevinburke/ssh_config"
+	"github.com/ncode/ssh_config"
 )
 
 func ExampleHost_Matches() {
@@ -35,8 +35,8 @@ Host *.example.com
 `
 
 	cfg, _ := ssh_config.Decode(strings.NewReader(config))
-	val, _ := cfg.Get("test.example.com", "Compression")
-	fmt.Println(val)
+	res, _ := cfg.Resolve(ssh_config.Context{HostArg: "test.example.com"})
+	fmt.Println(res.Get("Compression"))
 	// Output: yes
 }
 
@@ -54,5 +54,5 @@ func ExampleUserSettings_ConfigFinder() {
 	u.ConfigFinder(func() string {
 		return filepath.Join("testdata", "test_config")
 	})
-	u.Get("example.com", "Host")
+	u.Resolve(ssh_config.Context{HostArg: "example.com"})
 }

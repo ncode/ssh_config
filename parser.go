@@ -12,6 +12,7 @@ type sshParser struct {
 	tokensBuffer  []token
 	currentTable  []string
 	seenTableKeys []string
+	currentNodes  *[]Node
 	// /etc/ssh parser or local parser - used to find the default for relative
 	// filepaths in the Include directive
 	system bool
@@ -105,9 +106,21 @@ func (p *sshParser) parseKV() sshParserStateFn {
 		comment = tok.val
 	}
 	if strings.ToLower(key.val) == "match" {
-		// https://github.com/kevinburke/ssh_config/issues/6
-		p.raiseErrorf(val, "ssh_config: Match directive parsing is unsupported")
-		return nil
+		matchval := strings.TrimRightFunc(val.val, unicode.IsSpace)
+		spaceBeforeComment := val.val[len(matchval):]
+		m := &Match{
+			Criteria:           matchval,
+			Nodes:              make([]Node, 0),
+			EOLComment:         comment,
+			spaceBeforeComment: spaceBeforeComment,
+			hasEquals:          hasEquals,
+			leadingSpace:       key.Position.Col - 1,
+			position:           key.Position,
+		}
+		p.config.Blocks = append(p.config.Blocks, m)
+		p.config.hasMatch = true
+		p.currentNodes = &m.Nodes
+		return p.parseStart
 	}
 	if strings.ToLower(key.val) == "host" {
 		strPatterns := strings.Split(val.val, " ")
@@ -133,10 +146,13 @@ func (p *sshParser) parseKV() sshParserStateFn {
 			EOLComment:         comment,
 			spaceBeforeComment: spaceBeforeComment,
 			hasEquals:          hasEquals,
+			position:           key.Position,
 		})
+		host := p.config.Hosts[len(p.config.Hosts)-1]
+		p.config.Blocks = append(p.config.Blocks, host)
+		p.currentNodes = &host.Nodes
 		return p.parseStart
 	}
-	lastHost := p.config.Hosts[len(p.config.Hosts)-1]
 	if strings.ToLower(key.val) == "include" {
 		inc, err := NewInclude(strings.Split(val.val, " "), hasEquals, key.Position, comment, p.system, p.depth+1)
 		if err == ErrDepthExceeded {
@@ -147,7 +163,7 @@ func (p *sshParser) parseKV() sshParserStateFn {
 			p.raiseErrorf(val, fmt.Sprintf("Error parsing Include directive: %v", err))
 			return nil
 		}
-		lastHost.Nodes = append(lastHost.Nodes, inc)
+		*p.currentNodes = append(*p.currentNodes, inc)
 		return p.parseStart
 	}
 	shortval := strings.TrimRightFunc(val.val, unicode.IsSpace)
@@ -161,14 +177,13 @@ func (p *sshParser) parseKV() sshParserStateFn {
 		leadingSpace:    key.Position.Col - 1,
 		position:        key.Position,
 	}
-	lastHost.Nodes = append(lastHost.Nodes, kv)
+	*p.currentNodes = append(*p.currentNodes, kv)
 	return p.parseStart
 }
 
 func (p *sshParser) parseComment() sshParserStateFn {
 	comment := p.getToken()
-	lastHost := p.config.Hosts[len(p.config.Hosts)-1]
-	lastHost.Nodes = append(lastHost.Nodes, &Empty{
+	*p.currentNodes = append(*p.currentNodes, &Empty{
 		Comment: comment.val,
 		// account for the "#" as well
 		leadingSpace: comment.Position.Col - 2,
@@ -194,6 +209,9 @@ func parseSSH(flow chan token, system bool, depth uint8) *Config {
 		seenTableKeys: make([]string, 0),
 		system:        system,
 		depth:         depth,
+	}
+	if len(result.Hosts) > 0 {
+		parser.currentNodes = &result.Hosts[0].Nodes
 	}
 	parser.run()
 	return result
