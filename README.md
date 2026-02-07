@@ -6,8 +6,8 @@ from a program, if your heart desires.
 
 ## Fork Notice
 
-This repository is a long-term public fork of the original `ssh_config` project,
-maintained under its own roadmap.
+This repository is a personal long-term public fork of the original `ssh_config`
+project, maintained under its own roadmap.
 
 It's designed to be used with the excellent
 [x/crypto/ssh](https://golang.org/x/crypto/ssh) package, which handles SSH
