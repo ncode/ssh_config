@@ -1,6 +1,7 @@
 Carlos A Becker <caarlos0@gmail.com>
 Dustin Spicuzza <dustin@virtualroadside.com>
 Eugene Terentev <eugene@terentev.net>
+Juliano Martinez <juliano@martinez.io>
 Kevin Burke <kevin@burke.dev>
 Mark Nevill <nev@improbable.io>
 Scott Lessans <slessans@gmail.com>

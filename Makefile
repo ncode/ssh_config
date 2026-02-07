@@ -1,5 +1,5 @@
-BUMP_VERSION := $(GOPATH)/bin/bump_version
-WRITE_MAILMAP := $(GOPATH)/bin/write_mailmap
+BUMP_VERSION := go run github.com/kevinburke/bump_version@v0.0.0-20240229201700-392026682451
+WRITE_MAILMAP := go run github.com/kevinburke/write_mailmap@v0.0.0-20180427174204-754cdd25e871
 
 lint:
 	go vet ./...
@@ -12,18 +12,12 @@ test:
 race-test:
 	go test -timeout=500ms -race ./...
 
-$(BUMP_VERSION):
-	go get -u github.com/kevinburke/bump_version
-
-$(WRITE_MAILMAP):
-	go get -u github.com/kevinburke/write_mailmap
-
-release: test | $(BUMP_VERSION)
+release: test
 	$(BUMP_VERSION) --tag-prefix=v minor config.go
 
 force: ;
 
-AUTHORS.txt: force | $(WRITE_MAILMAP)
+AUTHORS.txt: force
 	$(WRITE_MAILMAP) > AUTHORS.txt
 
 authors: AUTHORS.txt
